@@ -36,7 +36,7 @@ def has_pairs(input_str):
         group_sizes.append(len(list(group)))
     if group_sizes.count(4) > 0:
         return True
-    elif group_sizes.count(2) >= 2:
+    elif group_sizes.count(2) + group_sizes.count(3) >= 2:
         return True
     else:
         return False
