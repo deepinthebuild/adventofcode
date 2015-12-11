@@ -1,4 +1,3 @@
-import string
 from itertools import groupby
 
 
@@ -51,6 +50,7 @@ def password_check(input_str):
     else:
         return False
 
+        
 input = "hepxcrrq"
 
 while not password_check(input):
@@ -59,6 +59,7 @@ while not password_check(input):
 print(input)
 
 input = increment(input)
+
 while not password_check(input):
     input = increment(input)
     
