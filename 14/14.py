@@ -1,10 +1,7 @@
-from itertools import accumulate
+from itertools import accumulate, cycle, islice
 
 def reindeer_race(input_list, length):
-    while len(input_list) < length:
-        input_list += input_list
-    
-    return input_list[:length]
+    return islice(cycle(input_list),length)
 
 
 lookup = {}
