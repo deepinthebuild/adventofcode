@@ -1,4 +1,6 @@
 import collections
+
+
 readouts = { 
             "children": 3,
             "cats": 7,
@@ -12,15 +14,18 @@ readouts = {
             "perfumes": 1
             }
 
+            
 def bang():
     return "!"
 
+    
 def query(input_dict):
     for key, value in input_dict.items():
         if value is not "!" and value != readouts[key]:
             return False
     return True
 
+    
 def query2(input_dict):
     for key, value in readouts.items():
         if key is "cats" or key is "trees":
@@ -32,7 +37,8 @@ def query2(input_dict):
         elif input_dict[key] is not "!" and value != input_dict[key]:
             return False
     return True
-                
+
+
 aunts = {}
 
 with open("input.txt", "r") as input:
