@@ -1,4 +1,5 @@
-import operator
+import random
+
 
 def replace_nth(input, old, new, n):
     if n == -1:
@@ -33,12 +34,17 @@ for old, new in transforms:
 
 print(len(new_molecules))
 
-transforms = sorted(transforms, key=operator.itemgetter(1), reverse=True)
+for _ in range(10):
+    random.shuffle(transforms)
 target = original
 steps = 0
 while target != 'e':
     for new, old in transforms:
-        steps += target.count(old)
-        target = target.replace(old, new)
+        if old not in target:
+            continue
+        target = target.replace(old, new, 1)
+        steps += 1
         print(target)
+        random.shuffle(transforms)
+        
 print(steps)
