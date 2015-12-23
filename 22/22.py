@@ -43,7 +43,6 @@ class Character:
 
 class Hero(Character):
 
-
     def hit(self, other):
         if self.mana < 53:
             return False
@@ -92,7 +91,7 @@ class Hero(Character):
         else:
             self.mana -= 173
             self.spent_mana += 173
-            other.poison = 6  
+            other.poison = 6 
             
     def mcharge(self, other):
         if self.mana < 229:
@@ -102,7 +101,7 @@ class Hero(Character):
         else:
             self.mana -= 229
             self.spent_mana += 229
-            self.charge = 6
+            self.charge = 5
             
 class CombatSimulator:
     def __init__(self, hero=None, villain=None):
@@ -149,7 +148,7 @@ class CombatSimulator:
             if not self.villain.is_living():
                 return self.hero.spent_mana
             
-            self.hero.HP -= 1
+
             if not self.hero.is_living():
                 return False
                 
@@ -164,7 +163,7 @@ class CombatSimulator:
 
 min_mana = 10**7
 wins = 0
-while wins < 10**0:
+while wins < 10**4:
     boss = Character(HP=55, base_damage=8)
     player = Hero(HP=50)
     battle = CombatSimulator(hero=player, villain=boss)
@@ -178,6 +177,7 @@ print(min_mana)
 min_mana_2 = 10**7
 wins2 = 0
 
+
 while wins2 < 10**4:
     boss = Character(HP=55, base_damage=8)
     player = Hero(HP=50)
@@ -186,4 +186,5 @@ while wins2 < 10**4:
     if result2:
         wins2 += 1
         min_mana_2 = min(min_mana_2, result2)
+
 print(min_mana_2)
