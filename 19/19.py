@@ -1,3 +1,5 @@
+import operator
+
 def replace_nth(input, old, new, n):
     if n == -1:
         n = input.count(old) - 1
@@ -31,13 +33,12 @@ for old, new in transforms:
 
 print(len(new_molecules))
 
-transforms = sorted(transforms, reverse=True)
+transforms = sorted(transforms, key=operator.itemgetter(1), reverse=True)
 target = original
 steps = 0
 while target != 'e':
     for new, old in transforms:
-        while old in target:
-            target = replace_nth(target, old, new, -1)
-            steps += 1
-            print(target)
+        steps += target.count(old)
+        target = target.replace(old, new)
+        print(target)
 print(steps)
